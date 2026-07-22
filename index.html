@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>物质文化遗产 · 中华文化遗产</title>
+    <title>非物质文化遗产 · 中华文化遗产</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: "SimSun", "宋体", serif; background: #fdf6e3; color: #3a2a1a; }
@@ -26,8 +26,8 @@
         .nav-links a:hover, .nav-links a.active { background: #6b1212; }
 
         .page-hero {
-            background: linear-gradient(rgba(40,10,0,0.6), rgba(40,10,0,0.6)),
-                url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Forbidden_City_Beijing_Shenwumen_gate.jpg/1280px-Forbidden_City_Beijing_Shenwumen_gate.jpg') center/cover;
+            background: linear-gradient(rgba(40,10,0,0.65), rgba(40,10,0,0.65)),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Peking_opera_-_two_warriors.jpg/1280px-Peking_opera_-_two_warriors.jpg') center/cover;
             color: #fff;
             text-align: center;
             padding: 80px 20px 70px;
@@ -37,15 +37,11 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        .section-title {
-            text-align: center;
-            padding: 50px 20px 30px;
-        }
+        .section-title { text-align: center; padding: 50px 20px 30px; }
         .section-title h2 { font-size: 26px; letter-spacing: 6px; color: #8b1a1a; }
         .section-title p { font-size: 14px; color: #7a5c3a; margin-top: 10px; letter-spacing: 1px; line-height: 1.8; }
         .section-title .line { width: 60px; height: 2px; background: #d4a84b; margin: 12px auto 0; }
 
-        /* 分类导航 */
         .cat-nav {
             display: flex;
             flex-wrap: wrap;
@@ -58,59 +54,27 @@
             top: 56px;
             z-index: 90;
         }
-        .cat-nav a {
-            padding: 6px 18px;
-            border: 1px solid #8b1a1a;
-            color: #8b1a1a;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 2px;
-            border-radius: 2px;
-            transition: all 0.2s;
-        }
+        .cat-nav a { padding: 6px 18px; border: 1px solid #8b1a1a; color: #8b1a1a; text-decoration: none; font-size: 13px; letter-spacing: 2px; border-radius: 2px; transition: all 0.2s; }
         .cat-nav a:hover { background: #8b1a1a; color: #f5d78e; }
 
-        /* 遗产分类区块 */
         .heritage-section { padding: 30px 0 50px; border-bottom: 1px dashed #d4a84b; }
         .heritage-section:last-child { border-bottom: none; }
 
-        .cat-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .cat-icon { font-size: 32px; }
-        .cat-header h2 { font-size: 22px; letter-spacing: 4px; color: #8b1a1a; }
-        .cat-desc { font-size: 14px; color: #7a5c3a; line-height: 1.8; margin-bottom: 20px; }
-
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-        }
-        .item-card {
-            background: #fff8ee;
-            border: 1px solid #e8c97a;
-            border-radius: 4px;
-            padding: 16px 18px;
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
+        .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+        .item-card { background: #fff8ee; border: 1px solid #e8c97a; border-radius: 4px; padding: 16px 18px; transition: box-shadow 0.2s, transform 0.2s; }
         .item-card:hover { box-shadow: 0 4px 16px rgba(139,26,26,0.12); transform: translateY(-2px); }
         .item-card h3 { font-size: 15px; color: #8b1a1a; letter-spacing: 2px; margin-bottom: 8px; }
         .item-card p { font-size: 13px; line-height: 1.8; color: #5a3e28; }
-        .item-tag {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 2px 10px;
-            background: #f5d78e;
-            color: #8b1a1a;
-            font-size: 11px;
-            border-radius: 2px;
-            letter-spacing: 1px;
-        }
+        .item-tag { display: inline-block; margin-top: 10px; padding: 2px 10px; background: #f5d78e; color: #8b1a1a; font-size: 11px; border-radius: 2px; letter-spacing: 1px; }
+
+        /* 联合国名录徽章 */
+        .item-card.unesco { border-color: #b8860b; }
+        .item-card.unesco h3::after { content: " ★"; color: #b8860b; font-size: 12px; }
 
         footer { background: #2a1000; color: #c8a96e; text-align: center; padding: 30px 20px; font-size: 13px; letter-spacing: 2px; line-height: 2; }
+
+        .legend { text-align: right; font-size: 12px; color: #7a5c3a; padding: 10px 0 0; }
+        .legend span { color: #b8860b; }
     </style>
 </head>
 <body>
@@ -119,384 +83,384 @@
     <a href="index.html" class="nav-logo">中华文化遗产</a>
     <div class="nav-links">
         <a href="index.html">首页</a>
-        <a href="material.html" class="active">物质文化遗产</a>
-        <a href="intangible.html">非物质文化遗产</a>
+        <a href="material.html">物质文化遗产</a>
+        <a href="intangible.html" class="active">非物质文化遗产</a>
     </div>
 </nav>
 
 <div class="page-hero">
-    <h1>物质文化遗产</h1>
-    <p>有形的历史见证 · 不朽的文明印记</p>
+    <h1>非物质文化遗产</h1>
+    <p>活态传承的文化基因 · 民族记忆的精神家园</p>
 </div>
 
-<!-- 分类快速导航 -->
 <div class="cat-nav">
-    <a href="#site">古遗址</a>
-    <a href="#arch">古建筑</a>
-    <a href="#cave">石窟寺</a>
-    <a href="#city">古城</a>
-    <a href="#village">古村落</a>
-    <a href="#bronze">青铜器</a>
-    <a href="#painting">书画</a>
-    <a href="#porcelain">瓷器</a>
+    <a href="#opera">曲艺戏曲</a>
+    <a href="#folk-song">民歌</a>
+    <a href="#embroidery">刺绣</a>
+    <a href="#craft">传统技艺</a>
+    <a href="#dance">传统舞蹈</a>
+    <a href="#medicine">传统医药</a>
+    <a href="#festival">民俗节庆</a>
+    <a href="#sport">传统体育</a>
 </div>
 
 <div class="container">
+    <p class="legend"><span>★</span> 已列入联合国教科文组织非遗名录</p>
 
-    <!-- 古遗址 -->
-    <div class="heritage-section" id="site">
+    <!-- 曲艺戏曲 -->
+    <div class="heritage-section" id="opera">
         <div class="section-title">
-            <h2>古遗址</h2>
+            <h2>曲艺与戏曲</h2>
             <div class="line"></div>
-            <p>古遗址是先民生产生活留下的遗迹，是探索文明起源与发展的重要依据。</p>
+            <p>中国戏曲综合文学、音乐、舞蹈、美术、武术等多种艺术形式，是中华民族独创的综合性舞台艺术。</p>
         </div>
         <div class="items-grid">
-            <div class="item-card">
-                <h3>元谋人遗址</h3>
-                <p>云南元谋，距今约170万年，是中国发现的最早人类化石遗址之一。</p>
-                <span class="item-tag">旧石器时代</span>
+            <div class="item-card unesco">
+                <h3>京剧</h3>
+                <p>清代形成于北京，融唱念做打于一体，生旦净末丑行当分明，国粹之首。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card unesco">
+                <h3>昆曲</h3>
+                <p>发源于苏州，有"百戏之祖"之称，唱腔婉转细腻，2001年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>北京周口店遗址</h3>
-                <p>北京房山，距今约70万年，北京猿人化石出土地，世界遗产地。</p>
-                <span class="item-tag">世界遗产</span>
+                <h3>越剧</h3>
+                <p>浙江嵊州，以女演员为主，唱腔清新优美，《梁祝》《红楼梦》脍炙人口。</p>
+                <span class="item-tag">浙江</span>
             </div>
             <div class="item-card">
-                <h3>半坡遗址</h3>
-                <p>陕西西安，距今约6000年，仰韶文化典型遗址，彩陶文明发源地。</p>
-                <span class="item-tag">新石器时代</span>
+                <h3>粤剧</h3>
+                <p>广东、广西，融汇徽班、汉班唱腔与地方曲调，是海外华人文化重要纽带。</p>
+                <span class="item-tag">广东</span>
             </div>
             <div class="item-card">
-                <h3>良渚古城遗址</h3>
-                <p>浙江杭州，距今约5300—4300年，中华文明重要早期城市，2019年入选世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
+                <h3>川剧</h3>
+                <p>四川地方戏曲，以变脸、喷火等绝技著称，唱腔高亢激越，幽默风趣。</p>
+                <span class="item-tag">四川</span>
             </div>
             <div class="item-card">
-                <h3>殷墟</h3>
-                <p>河南安阳，商代晚期都城遗址，甲骨文发现地，2006年入选世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
+                <h3>黄梅戏</h3>
+                <p>安徽，源于湖北黄梅采茶歌，唱腔朴实流畅，《天仙配》广为流传。</p>
+                <span class="item-tag">安徽</span>
             </div>
             <div class="item-card">
-                <h3>秦始皇兵马俑</h3>
-                <p>陕西西安，秦代皇家陵寝陪葬坑，被誉为"世界第八大奇迹"。</p>
-                <span class="item-tag">世界遗产</span>
+                <h3>相声</h3>
+                <p>北方曲艺代表，以说学逗唱为表演形式，讽刺幽默，雅俗共赏。</p>
+                <span class="item-tag">曲艺</span>
             </div>
             <div class="item-card">
-                <h3>三星堆遗址</h3>
-                <p>四川广汉，古蜀文明遗址，出土大量青铜面具，展现独特的古蜀文化。</p>
-                <span class="item-tag">商周时代</span>
+                <h3>评弹</h3>
+                <p>苏州评话与弹词合称，以吴侬软语演唱，说表细腻，流行于江浙沪一带。</p>
+                <span class="item-tag">江南曲艺</span>
             </div>
             <div class="item-card">
-                <h3>圆明园遗址</h3>
-                <p>北京海淀，清代皇家园林遗址，西洋楼残迹见证近代历史沧桑。</p>
-                <span class="item-tag">清代</span>
+                <h3>豫剧</h3>
+                <p>河南地方戏曲，唱腔高亢豪迈，行腔酣畅，是流布地区最广的地方剧种之一。</p>
+                <span class="item-tag">河南</span>
+            </div>
+            <div class="item-card">
+                <h3>皮影戏</h3>
+                <p>以兽皮或纸板制成人偶，灯光投影表演故事，距今已有两千余年历史。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
         </div>
     </div>
 
-    <!-- 古建筑 -->
-    <div class="heritage-section" id="arch">
+    <!-- 民歌 -->
+    <div class="heritage-section" id="folk-song">
         <div class="section-title">
-            <h2>古建筑</h2>
+            <h2>民歌</h2>
             <div class="line"></div>
-            <p>中国古建筑以木构架为主体，融技术与艺术为一体，体现天人合一的哲学理念。</p>
+            <p>民歌是劳动人民集体创作的口头音乐，反映各族人民的生产生活、情感世界与民族精神。</p>
         </div>
         <div class="items-grid">
             <div class="item-card">
-                <h3>故宫（紫禁城）</h3>
-                <p>北京，明清两代皇宫，世界最大的宫殿建筑群，1987年入选世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
+                <h3>信天游</h3>
+                <p>陕北高原民歌，旋律高亢悠扬，歌词即兴率真，是黄土高原人民情感的真实表达。</p>
+                <span class="item-tag">陕西</span>
             </div>
             <div class="item-card">
-                <h3>万里长城</h3>
-                <p>横跨15个省市，全长约21196公里，中华民族精神的象征，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
+                <h3>花儿</h3>
+                <p>流行于西北地区的山歌，回、汉、藏等多民族共同传唱，被誉为"西北之魂"。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>天坛</h3>
-                <p>北京，明清两代皇帝祭天场所，圜丘、祈年殿等建筑展现天圆地方宇宙观。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>布达拉宫</h3>
-                <p>西藏拉萨，藏传佛教圣地，海拔3700米，13层宫殿气势恢宏，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>颐和园</h3>
-                <p>北京，清代皇家园林，以昆明湖、万寿山为主体，中国园林艺术典范。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>苏州古典园林</h3>
-                <p>江苏苏州，拙政园、留园等，"咫尺之内再造乾坤"，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>应县木塔</h3>
-                <p>山西应县，建于辽代1056年，高67.31米，世界现存最高最古老的木构塔。</p>
-                <span class="item-tag">辽代</span>
-            </div>
-            <div class="item-card">
-                <h3>福建土楼</h3>
-                <p>福建龙岩、漳州，客家民居建筑，圆形或方形，2008年入选世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 石窟寺 -->
-    <div class="heritage-section" id="cave">
-        <div class="section-title">
-            <h2>石窟寺</h2>
-            <div class="line"></div>
-            <p>石窟寺是佛教传入中国后，结合中国艺术创造的宗教文化瑰宝，兼具历史、艺术与科学价值。</p>
-        </div>
-        <div class="items-grid">
-            <div class="item-card">
-                <h3>敦煌莫高窟</h3>
-                <p>甘肃敦煌，735个洞窟，跨越十六国至元代千年，壁画与彩塑举世无双。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>云冈石窟</h3>
-                <p>山西大同，北魏时期开凿，252个洞窟，以大型石雕佛像著称，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>龙门石窟</h3>
-                <p>河南洛阳，北魏至唐代，2300余个洞窟，卢舍那大佛为代表，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>麦积山石窟</h3>
-                <p>甘肃天水，北朝至明清，221个洞窟，以泥塑彩塑见长，被称"东方雕塑馆"。</p>
-                <span class="item-tag">北朝—明清</span>
-            </div>
-            <div class="item-card">
-                <h3>大足石刻</h3>
-                <p>重庆大足，唐末至宋代，75处，5万余尊造像，世俗题材丰富，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>炳灵寺石窟</h3>
-                <p>甘肃临夏，西秦至明代，183个窟龛，保存有中国最早有明确纪年的石窟造像。</p>
-                <span class="item-tag">西秦—明代</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 古城 -->
-    <div class="heritage-section" id="city">
-        <div class="section-title">
-            <h2>古城</h2>
-            <div class="line"></div>
-            <p>古城是历史上政治、经济、文化的中心，保留着完整的城市格局与历史风貌。</p>
-        </div>
-        <div class="items-grid">
-            <div class="item-card">
-                <h3>平遥古城</h3>
-                <p>山西平遥，明代县城，城墙、街道、民居完好保存，票号文化发源地，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>丽江古城</h3>
-                <p>云南丽江，纳西族古城，以四方街为中心，融合汉、藏、纳西文化，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>凤凰古城</h3>
-                <p>湖南湘西，苗族、土家族聚居地，沱江穿城而过，吊脚楼错落有致。</p>
-                <span class="item-tag">苗族文化</span>
-            </div>
-            <div class="item-card">
-                <h3>阆中古城</h3>
-                <p>四川阆中，中国保存最完整的古代城市之一，风水格局完美，汉唐遗风犹存。</p>
-                <span class="item-tag">汉—清代</span>
-            </div>
-            <div class="item-card">
-                <h3>歙县古城</h3>
-                <p>安徽黄山，徽州文化核心地，牌坊、祠堂、民居构成独特徽派建筑体系。</p>
-                <span class="item-tag">徽州文化</span>
-            </div>
-            <div class="item-card">
-                <h3>正定古城</h3>
-                <p>河北石家庄，北方重镇，隆兴寺等古建筑群密集，有"古建筑博物馆"之誉。</p>
-                <span class="item-tag">唐—明清</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 古村落 -->
-    <div class="heritage-section" id="village">
-        <div class="section-title">
-            <h2>古村落</h2>
-            <div class="line"></div>
-            <p>古村落是中国农耕文明的重要载体，保存着传统建筑、民俗与生活方式。</p>
-        </div>
-        <div class="items-grid">
-            <div class="item-card">
-                <h3>西递·宏村</h3>
-                <p>安徽黟县，徽派建筑精华，马头墙、天井院落，水系规划独具匠心，世界遗产。</p>
-                <span class="item-tag">世界遗产</span>
-            </div>
-            <div class="item-card">
-                <h3>培田古村</h3>
-                <p>福建连城，客家古村，30余幢明清大宅，被誉为"民间故宫"。</p>
+                <h3>客家山歌</h3>
+                <p>广东、福建等地客家人传唱，旋律委婉，即兴对唱，反映客家迁徙历史。</p>
                 <span class="item-tag">客家文化</span>
             </div>
             <div class="item-card">
-                <h3>流坑古村</h3>
-                <p>江西乐安，董氏家族聚居千年，保存古建筑260余幢，儒家文化浓厚。</p>
-                <span class="item-tag">赣派建筑</span>
+                <h3>侗族大歌</h3>
+                <p>贵州、广西侗族，无指挥、无伴奏的多声部合唱，2009年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>张壁古堡</h3>
-                <p>山西介休，隋唐古堡，地下藏有长达千米的古地道，军事防御奇观。</p>
-                <span class="item-tag">隋唐</span>
+                <h3>蒙古族长调</h3>
+                <p>内蒙古，旋律舒展悠长，气息绵延，表达蒙古族对草原的深情，联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>诸葛八卦村</h3>
-                <p>浙江兰溪，诸葛亮后裔聚居地，村落按八卦形态布局，结构奇特。</p>
-                <span class="item-tag">明代</span>
+                <h3>藏族民歌</h3>
+                <p>分布于西藏、青海、四川等地，有堆谐、囊玛等形式，高亢嘹亮，充满宗教情怀。</p>
+                <span class="item-tag">西藏</span>
             </div>
             <div class="item-card">
-                <h3>党家村</h3>
-                <p>陕西韩城，明清民居保存完好，四合院群落密集，被誉为"东方人类古代传统民居的活化石"。</p>
-                <span class="item-tag">明清</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 青铜器 -->
-    <div class="heritage-section" id="bronze">
-        <div class="section-title">
-            <h2>青铜器</h2>
-            <div class="line"></div>
-            <p>青铜器是商周文明的重要标志，兼具礼仪、政治与艺术功能，铸造工艺精湛绝伦。</p>
-        </div>
-        <div class="items-grid">
-            <div class="item-card">
-                <h3>后母戊鼎</h3>
-                <p>商代晚期，重832.84公斤，是迄今出土的中国古代最重的青铜礼器，现藏国家博物馆。</p>
-                <span class="item-tag">商代</span>
+                <h3>江南小调</h3>
+                <p>流行于江浙沪，旋律婉转轻柔，歌词细腻，《茉莉花》是其代表，享誉世界。</p>
+                <span class="item-tag">江南</span>
             </div>
             <div class="item-card">
-                <h3>四羊方尊</h3>
-                <p>商代，湖南出土，四角饰四羊头，造型奇特，铸造工艺登峰造极。</p>
-                <span class="item-tag">商代</span>
-            </div>
-            <div class="item-card">
-                <h3>毛公鼎</h3>
-                <p>西周，铭文497字，是中国现存铭文最多的青铜器，极具历史价值。</p>
-                <span class="item-tag">西周</span>
-            </div>
-            <div class="item-card">
-                <h3>曾侯乙编钟</h3>
-                <p>战国，湖北随州出土，65件编钟，音域跨五个八度，被誉为"世界第八大奇迹"。</p>
-                <span class="item-tag">战国</span>
-            </div>
-            <div class="item-card">
-                <h3>三星堆青铜面具</h3>
-                <p>商代，四川出土，造型夸张神秘，眼部突出，展现古蜀文明独特审美。</p>
-                <span class="item-tag">商代·古蜀</span>
-            </div>
-            <div class="item-card">
-                <h3>莲鹤方壶</h3>
-                <p>春秋，河南新郑出土，盖顶立鹤，莲花围绕，标志春秋青铜艺术的新风格。</p>
-                <span class="item-tag">春秋</span>
+                <h3>苗族飞歌</h3>
+                <p>贵州苗族，音域宽广，高亢嘹亮，多在山间野外演唱，传递情感与信息。</p>
+                <span class="item-tag">贵州</span>
             </div>
         </div>
     </div>
 
-    <!-- 书画 -->
-    <div class="heritage-section" id="painting">
+    <!-- 刺绣 -->
+    <div class="heritage-section" id="embroidery">
         <div class="section-title">
-            <h2>书画</h2>
+            <h2>刺绣</h2>
             <div class="line"></div>
-            <p>中国书画同源，以笔墨写意，追求气韵生动，是中华文化最具代表性的艺术形式之一。</p>
+            <p>中国刺绣历史逾三千年，以针为笔、以线为墨，绣出无声的诗、立体的画。四大名绣各具风格，是中华女红艺术的最高代表。</p>
         </div>
         <div class="items-grid">
             <div class="item-card">
-                <h3>《洛神赋图》</h3>
-                <p>东晋顾恺之，描绘曹植《洛神赋》意境，线条流畅，"高古游丝描"典范。</p>
-                <span class="item-tag">东晋</span>
+                <h3>苏绣</h3>
+                <p>江苏苏州，四大名绣之首，以精细雅洁著称，双面绣可两面观赏，针法多达40余种。</p>
+                <span class="item-tag">四大名绣</span>
             </div>
             <div class="item-card">
-                <h3>《兰亭集序》</h3>
-                <p>东晋王羲之，行书巅峰之作，"天下第一行书"，真迹已佚，摹本传世。</p>
-                <span class="item-tag">书法·东晋</span>
+                <h3>湘绣</h3>
+                <p>湖南长沙，以狮虎题材著称，毛丝分明，栩栩如生，被誉为"绣花能生香"。</p>
+                <span class="item-tag">四大名绣</span>
             </div>
             <div class="item-card">
-                <h3>《清明上河图》</h3>
-                <p>北宋张择端，长528厘米，描绘北宋汴京繁华景象，风俗画巅峰之作。</p>
-                <span class="item-tag">北宋</span>
+                <h3>粤绣</h3>
+                <p>广东广州，构图饱满，色彩艳丽，多以凤凰、孔雀、花卉为题材，远销欧洲。</p>
+                <span class="item-tag">四大名绣</span>
             </div>
             <div class="item-card">
-                <h3>《富春山居图》</h3>
-                <p>元代黄公望，描绘富春江两岸秋景，"画中之兰亭"，现分藏两岸博物馆。</p>
-                <span class="item-tag">元代</span>
+                <h3>蜀绣</h3>
+                <p>四川成都，以软缎、彩丝为主料，针法严谨，色彩明快，鲤鱼题材最为著名。</p>
+                <span class="item-tag">四大名绣</span>
             </div>
             <div class="item-card">
-                <h3>《韩熙载夜宴图》</h3>
-                <p>五代顾闳中，描绘韩熙载家宴，人物神态生动，色彩富丽，工笔重彩典范。</p>
-                <span class="item-tag">五代</span>
+                <h3>苗绣</h3>
+                <p>贵州苗族，图案古朴神秘，以龙、蝴蝶为主题，承载苗族历史与神话记忆。</p>
+                <span class="item-tag">少数民族</span>
             </div>
             <div class="item-card">
-                <h3>《千里江山图》</h3>
-                <p>北宋王希孟，18岁所作，青绿山水长卷，长11.91米，色彩瑰丽壮观。</p>
-                <span class="item-tag">北宋</span>
+                <h3>彝族刺绣</h3>
+                <p>云南、四川彝族，色彩对比强烈，几何图案为主，服饰装饰性极强。</p>
+                <span class="item-tag">少数民族</span>
+            </div>
+            <div class="item-card">
+                <h3>土家族织锦（西兰卡普）</h3>
+                <p>湖南、湖北土家族，以蚕丝为原料，图案精美，被誉为"土家之花"。</p>
+                <span class="item-tag">少数民族</span>
+            </div>
+            <div class="item-card">
+                <h3>藏族唐卡刺绣</h3>
+                <p>西藏，以刺绣技法制作唐卡，耗时数年，宗教题材为主，色彩金碧辉煌。</p>
+                <span class="item-tag">西藏</span>
             </div>
         </div>
     </div>
 
-    <!-- 瓷器 -->
-    <div class="heritage-section" id="porcelain">
+    <!-- 传统技艺 -->
+    <div class="heritage-section" id="craft">
         <div class="section-title">
-            <h2>瓷器</h2>
+            <h2>传统技艺</h2>
             <div class="line"></div>
-            <p>中国是瓷器的故乡，"China"即因瓷器而得名。中国瓷器以釉色、造型、纹饰见长，代表了东方美学的最高成就。</p>
+            <p>传统技艺是历代工匠智慧与经验的结晶，涵盖制造、加工、建造等各类传统手工技能。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card unesco">
+                <h3>景德镇手工制瓷</h3>
+                <p>江西景德镇，拉坯、利坯、施釉、彩绘、烧制等72道工序全手工完成，千年窑火不熄。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card unesco">
+                <h3>宣纸制作</h3>
+                <p>安徽泾县，以青檀皮和沙田稻草为原料，108道工序，"纸寿千年"，书画首选。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>剪纸</h3>
+                <p>流行于全国各地，以剪刀或刻刀在纸上剪刻图案，春节、婚庆必备装饰。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>木版年画</h3>
+                <p>杨柳青（天津）、桃花坞（苏州）、潍坊（山东）等地，雕版印刷，辞旧迎新。</p>
+                <span class="item-tag">年节艺术</span>
+            </div>
+            <div class="item-card">
+                <h3>漆器髹饰</h3>
+                <p>漆艺历史逾七千年，雕漆、螺钿、描金等技法，北京、扬州、福州各具风格。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>景泰蓝</h3>
+                <p>北京，以铜为胎，掐丝填彩珐琅，烧制打磨，集多种工艺之大成，皇家御用。</p>
+                <span class="item-tag">北京</span>
+            </div>
+            <div class="item-card">
+                <h3>传统木结构营造</h3>
+                <p>以榫卯结构为核心，不用钉子，集力学与美学于一体，建造宫殿、庙宇、民居。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>茶艺与茶道</h3>
+                <p>中国是茶的故乡，制茶、泡茶、品茶形成独特文化体系，2022年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 传统舞蹈 -->
+    <div class="heritage-section" id="dance">
+        <div class="section-title">
+            <h2>传统舞蹈</h2>
+            <div class="line"></div>
+            <p>中国传统舞蹈种类繁多，各民族舞蹈异彩纷呈，既是艺术表达，也是民族文化的活态展现。</p>
         </div>
         <div class="items-grid">
             <div class="item-card">
-                <h3>汝窑青瓷</h3>
-                <p>北宋，"雨过天青云破处"，釉色纯净温润，传世仅67件，极为珍贵。</p>
-                <span class="item-tag">北宋·五大名窑</span>
+                <h3>龙舞</h3>
+                <p>流行于全国，以舞动龙形道具为主，气势磅礴，寄托驱邪纳吉、风调雨顺的美好愿望。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>官窑瓷器</h3>
-                <p>南宋，釉色如翡翠，开片自然，紫口铁足为典型特征，皇家御用。</p>
-                <span class="item-tag">南宋·五大名窑</span>
+                <h3>狮舞</h3>
+                <p>南狮、北狮各具特色，逢年过节、喜庆开业必备，寓意吉祥辟邪。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>哥窑瓷器</h3>
-                <p>宋代，以"金丝铁线"开片著称，百圾碎纹理天然，历来被视为珍品。</p>
-                <span class="item-tag">宋代·五大名窑</span>
+                <h3>傣族孔雀舞</h3>
+                <p>云南傣族，模仿孔雀开屏、飞翔等姿态，轻盈优美，杨丽萍将其发扬光大。</p>
+                <span class="item-tag">云南傣族</span>
             </div>
             <div class="item-card">
-                <h3>钧窑瓷器</h3>
-                <p>宋代，以窑变著称，同一釉料烧出千变万化的色彩，"钧瓷无双"。</p>
-                <span class="item-tag">宋代·五大名窑</span>
+                <h3>蒙古族安代舞</h3>
+                <p>内蒙古，集体圆圈舞，边唱边舞，节奏欢快，是蒙古族最具代表性的舞蹈之一。</p>
+                <span class="item-tag">内蒙古</span>
             </div>
             <div class="item-card">
-                <h3>元青花</h3>
-                <p>元代景德镇，以钴料绘制纹饰，蓝白相映，开创釉下彩绘新时代。</p>
-                <span class="item-tag">元代</span>
+                <h3>朝鲜族农乐舞</h3>
+                <p>吉林延边，象帽、长鼓、扇舞融为一体，2009年入选联合国非遗名录。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>明成化斗彩</h3>
-                <p>明成化年间，釉下青花与釉上彩相结合，鸡缸杯等传世珍品价值连城。</p>
-                <span class="item-tag">明代</span>
+                <h3>维吾尔族麦西热甫</h3>
+                <p>新疆维吾尔族，集歌舞、音乐、游戏于一体的综合性民俗活动，联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 传统医药 -->
+    <div class="heritage-section" id="medicine">
+        <div class="section-title">
+            <h2>传统医药</h2>
+            <div class="line"></div>
+            <p>中医药是中华民族原创的医学科学，以整体观念、辨证论治为核心，守护中华民族健康数千年。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card unesco">
+                <h3>中医针灸</h3>
+                <p>以经络腧穴理论为基础，通过针刺、艾灸调节人体机能，2010年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
             </div>
             <div class="item-card">
-                <h3>清珐琅彩</h3>
-                <p>清代，将欧洲珐琅技艺与中国瓷器结合，色彩富丽，康雍乾三朝极盛。</p>
-                <span class="item-tag">清代</span>
+                <h3>中草药炮制</h3>
+                <p>通过蒸、炒、炙、煅等方法加工中药材，增效减毒，是中医用药的核心技术。</p>
+                <span class="item-tag">传统技艺</span>
             </div>
             <div class="item-card">
-                <h3>龙泉青瓷</h3>
-                <p>浙江龙泉，宋至明代，梅子青、粉青釉色如玉，通过海上丝路远销世界。</p>
-                <span class="item-tag">宋—明代</span>
+                <h3>藏医药</h3>
+                <p>藏族传统医学体系，以《四部医典》为核心，结合藏区特有植物、矿物入药。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>推拿按摩</h3>
+                <p>以手法作用于人体体表，通过经络腧穴防治疾病，历史可追溯至先秦时期。</p>
+                <span class="item-tag">中医外治</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 民俗节庆 -->
+    <div class="heritage-section" id="festival">
+        <div class="section-title">
+            <h2>民俗节庆</h2>
+            <div class="line"></div>
+            <p>传统节日是中华民族文化认同的重要载体，凝聚着民族情感、伦理观念与生活智慧。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card unesco">
+                <h3>春节</h3>
+                <p>农历新年，贴春联、放鞭炮、拜年、包饺子，是中华民族最重要的传统节日，2024年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>清明节</h3>
+                <p>扫墓祭祖、踏青郊游，寒食节与清明节合并，兼具慎终追远与拥抱自然的双重意义。</p>
+                <span class="item-tag">传统节日</span>
+            </div>
+            <div class="item-card unesco">
+                <h3>端午节</h3>
+                <p>农历五月初五，赛龙舟、吃粽子、挂艾草，纪念屈原，2009年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>中秋节</h3>
+                <p>农历八月十五，赏月、吃月饼、提灯笼，寄托对家人团圆的深切思念。</p>
+                <span class="item-tag">传统节日</span>
+            </div>
+            <div class="item-card">
+                <h3>傣族泼水节</h3>
+                <p>云南傣族新年，互相泼水祝福，祈求平安吉祥，是最具特色的少数民族节庆。</p>
+                <span class="item-tag">少数民族</span>
+            </div>
+            <div class="item-card">
+                <h3>彝族火把节</h3>
+                <p>云南、四川彝族，农历六月二十四，点燃火把驱邪纳吉，歌舞通宵达旦。</p>
+                <span class="item-tag">少数民族</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 传统体育 -->
+    <div class="heritage-section" id="sport">
+        <div class="section-title">
+            <h2>传统体育与武艺</h2>
+            <div class="line"></div>
+            <p>中华传统体育兼具健身、防身与艺术功能，蕴含深厚的哲学思想与文化内涵。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>太极拳</h3>
+                <p>以阴阳五行学说为理论基础，刚柔相济，动静结合，2020年入选联合国名录。</p>
+                <span class="item-tag">联合国名录</span>
+            </div>
+            <div class="item-card">
+                <h3>少林功夫</h3>
+                <p>河南嵩山少林寺，融武术、禅宗、医学为一体，"天下功夫出少林"。</p>
+                <span class="item-tag">武术</span>
+            </div>
+            <div class="item-card">
+                <h3>中国式摔跤</h3>
+                <p>亦称"跤"，历史逾两千年，蒙古族布库、满族善扑营等各地均有传承。</p>
+                <span class="item-tag">传统体育</span>
+            </div>
+            <div class="item-card">
+                <h3>围棋</h3>
+                <p>起源于中国，距今逾四千年，"棋局如人生"，以简单规则蕴含无穷变化。</p>
+                <span class="item-tag">传统棋艺</span>
             </div>
         </div>
     </div>
