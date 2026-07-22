@@ -1,24 +1,363 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的第一个网站</title>
+    <title>中华文化遗产</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 700px;
-            margin: 60px auto;
-            padding: 20px;
-            line-height: 1.8;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "SimSun", "宋体", serif; background: #fdf6e3; color: #3a2a1a; }
+
+        /* 导航栏 */
+        nav {
+            background: #8b1a1a;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
-        h1 { color: #333; }
+        .nav-logo {
+            color: #f5d78e;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            padding: 16px 0;
+        }
+        .nav-links { display: flex; gap: 0; }
+        .nav-links a {
+            color: #f5d78e;
+            text-decoration: none;
+            padding: 18px 24px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: background 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            background: #6b1212;
+        }
+
+        /* 英雄区 */
+        .hero {
+            background: linear-gradient(rgba(60,20,0,0.55), rgba(60,20,0,0.55)),
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Great_Wall_of_China_-_01.jpg/1280px-Great_Wall_of_China_-_01.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px 100px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            letter-spacing: 10px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+        .hero p {
+            font-size: 18px;
+            letter-spacing: 4px;
+            color: #f5d78e;
+            margin-bottom: 40px;
+        }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 12px 32px;
+            border: 2px solid #f5d78e;
+            color: #f5d78e;
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 3px;
+            border-radius: 2px;
+            transition: all 0.25s;
+        }
+        .btn:hover { background: #f5d78e; color: #8b1a1a; }
+        .btn-solid { background: #8b1a1a; border-color: #f5d78e; }
+
+        /* 模块卡片入口 */
+        .modules {
+            display: flex;
+            gap: 0;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+        .module-card {
+            flex: 1;
+            min-width: 280px;
+            margin: 10px;
+            border: 1px solid #d4a84b;
+            border-radius: 4px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: #fff8ee;
+        }
+        .module-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(139,26,26,0.15); }
+        .module-card .cover {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .module-card .cover-1 {
+            background-image: linear-gradient(rgba(80,30,0,0.4),rgba(80,30,0,0.4)),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Forbidden_City_Beijing_Shenwumen_gate.jpg/1280px-Forbidden_City_Beijing_Shenwumen_gate.jpg');
+        }
+        .module-card .cover-2 {
+            background-image: linear-gradient(rgba(80,30,0,0.4),rgba(80,30,0,0.4)),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Peking_opera_-_two_warriors.jpg/1280px-Peking_opera_-_two_warriors.jpg');
+        }
+        .module-card .card-body { padding: 24px; }
+        .module-card h2 { font-size: 22px; color: #8b1a1a; letter-spacing: 4px; margin-bottom: 10px; }
+        .module-card p { font-size: 14px; line-height: 1.9; color: #5a3e28; }
+        .card-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 14px;
+            background: #8b1a1a;
+            color: #f5d78e;
+            font-size: 12px;
+            letter-spacing: 2px;
+            border-radius: 2px;
+        }
+
+        /* 分隔标题 */
+        .section-title {
+            text-align: center;
+            padding: 50px 20px 10px;
+        }
+        .section-title h2 {
+            font-size: 28px;
+            letter-spacing: 6px;
+            color: #8b1a1a;
+            margin-bottom: 8px;
+        }
+        .section-title .line {
+            width: 80px;
+            height: 2px;
+            background: #d4a84b;
+            margin: 10px auto 0;
+        }
+
+        /* 发展史时间轴 */
+        .timeline {
+            max-width: 900px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+        }
+        .tl-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+        .tl-dot {
+            min-width: 56px;
+            text-align: center;
+        }
+        .tl-dot .era {
+            background: #8b1a1a;
+            color: #f5d78e;
+            font-size: 13px;
+            letter-spacing: 2px;
+            padding: 6px 8px;
+            border-radius: 2px;
+            display: block;
+        }
+        .tl-dot .line-v {
+            width: 2px;
+            height: 40px;
+            background: #d4a84b;
+            margin: 0 auto;
+        }
+        .tl-content {
+            background: #fff8ee;
+            border: 1px solid #e8c97a;
+            border-radius: 4px;
+            padding: 18px 22px;
+            flex: 1;
+        }
+        .tl-content h3 { font-size: 16px; color: #8b1a1a; letter-spacing: 2px; margin-bottom: 8px; }
+        .tl-content p { font-size: 14px; line-height: 1.9; color: #5a3e28; }
+
+        /* 数字统计 */
+        .stats {
+            background: #8b1a1a;
+            color: #f5d78e;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            padding: 40px 20px;
+        }
+        .stat-item { text-align: center; padding: 20px 50px; border-right: 1px solid rgba(245,215,142,0.3); }
+        .stat-item:last-child { border-right: none; }
+        .stat-num { font-size: 40px; font-weight: bold; }
+        .stat-label { font-size: 13px; letter-spacing: 3px; margin-top: 6px; opacity: 0.85; }
+
+        /* 页脚 */
+        footer {
+            background: #2a1000;
+            color: #c8a96e;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            line-height: 2;
+        }
     </style>
 </head>
 <body>
-    <h1>欢迎来到我的网站</h1>
-    <p>这是我的第一个网页！</p>
-    <p>只要会打字，就能做出网站。</p>
+
+<!-- 导航栏 -->
+<nav>
+    <div class="nav-logo">中华文化遗产</div>
+    <div class="nav-links">
+        <a href="index.html" class="active">首页</a>
+        <a href="material.html">物质文化遗产</a>
+        <a href="intangible.html">非物质文化遗产</a>
+    </div>
+</nav>
+
+<!-- 英雄区 -->
+<div class="hero">
+    <h1>中华文化遗产</h1>
+    <p>五千年文明 · 薪火相传 · 生生不息</p>
+    <div class="hero-btns">
+        <a href="material.html" class="btn">物质文化遗产</a>
+        <a href="intangible.html" class="btn">非物质文化遗产</a>
+    </div>
+</div>
+
+<!-- 数字统计 -->
+<div class="stats">
+    <div class="stat-item">
+        <div class="stat-num">57</div>
+        <div class="stat-label">世界遗产项目</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">5000+</div>
+        <div class="stat-label">年文明史</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">43</div>
+        <div class="stat-label">非遗入选联合国名录</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">97万+</div>
+        <div class="stat-label">国家级文物保护单位</div>
+    </div>
+</div>
+
+<!-- 模块入口 -->
+<div class="section-title">
+    <h2>探索文化遗产</h2>
+    <div class="line"></div>
+</div>
+<div class="modules">
+    <a href="material.html" class="module-card">
+        <div class="cover cover-1"></div>
+        <div class="card-body">
+            <h2>物质文化遗产</h2>
+            <p>承载历史记忆的实物遗存，包括古遗址、古建筑、石窟、古城、古村落、青铜器、书画、瓷器等，是中华民族智慧与创造力的结晶。</p>
+            <span class="card-tag">点击探索 →</span>
+        </div>
+    </a>
+    <a href="intangible.html" class="module-card">
+        <div class="cover cover-2"></div>
+        <div class="card-body">
+            <h2>非物质文化遗产</h2>
+            <p>以人为核心、以活态传承为特征的文化遗产，包括曲艺、民歌、刺绣、传统技艺、节庆习俗等，体现着中华民族的生命力与创造力。</p>
+            <span class="card-tag">点击探索 →</span>
+        </div>
+    </a>
+</div>
+
+<!-- 中华文化发展史时间轴 -->
+<div class="section-title">
+    <h2>中华文化发展史</h2>
+    <div class="line"></div>
+</div>
+<div class="timeline">
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">远古</span>
+            <div class="line-v"></div>
+        </div>
+        <div class="tl-content">
+            <h3>史前文明（约170万年前—前2070年）</h3>
+            <p>元谋人、北京人等早期人类在中华大地繁衍生息。仰韶文化、龙山文化、良渚文化等新石器时代文明先后兴起，彩陶、玉器等早期艺术形式出现，奠定了华夏文明的根基。</p>
+        </div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">夏商周</span>
+            <div class="line-v"></div>
+        </div>
+        <div class="tl-content">
+            <h3>三代文明（前2070年—前221年）</h3>
+            <p>中国进入青铜时代，礼乐制度确立，甲骨文、金文相继出现。周代形成"礼乐文明"，诸子百家争鸣，儒、道、墨、法等思想奠定中华文化的哲学根基，《诗经》《楚辞》开启文学传统。</p>
+        </div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">秦汉</span>
+            <div class="line-v"></div>
+        </div>
+        <div class="tl-content">
+            <h3>大一统帝国（前221年—220年）</h3>
+            <p>秦始皇统一文字、度量衡，修建万里长城。汉代确立儒学为正统，丝绸之路开通，中华文化向西传播。造纸术发明，史学、文学、医学全面繁荣，汉字成为东亚文化圈的核心载体。</p>
+        </div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">隋唐</span>
+            <div class="line-v"></div>
+        </div>
+        <div class="tl-content">
+            <h3>盛世文明（581年—907年）</h3>
+            <p>唐代是中华文化的鼎盛时期，诗歌、书法、绘画、音乐、舞蹈全面繁荣。李白、杜甫、王维等诗人辈出，颜真卿、欧阳询等书法大家确立楷书典范。佛教文化与本土文化深度融合，石窟艺术达到顶峰。</p>
+        </div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">宋元</span>
+            <div class="line-v"></div>
+        </div>
+        <div class="tl-content">
+            <h3>文化转型（960年—1368年）</h3>
+            <p>宋代理学兴起，词曲文学发达，瓷器工艺（汝、官、哥、钧、定五大名窑）达到历史高峰，活字印刷术发明。元代戏曲（杂剧）兴盛，多民族文化交融，形成独特的元青花瓷器传统。</p>
+        </div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">明清</span>
+            <div class="line-v"></div>
+        </div>
+        <div class="tl-content">
+            <h3>集大成时代（1368年—1912年）</h3>
+            <p>明代建造北京故宫，编撰《永乐大典》，郑和七下西洋传播中华文化。清代集历代文化之大成，京剧形成，工艺美术（刺绣、漆器、景泰蓝）高度发达，《红楼梦》等古典文学巨著问世。</p>
+        </div>
+    </div>
+    <div class="tl-item">
+        <div class="tl-dot">
+            <span class="era">近现代</span>
+        </div>
+        <div class="tl-content">
+            <h3>传承与复兴（1912年至今）</h3>
+            <p>中华人民共和国成立后，国家高度重视文化遗产保护，建立文物保护法律体系，推动非物质文化遗产传承。中国加入《世界遗产公约》，世界遗产数量居全球前列，传统文化在现代语境中焕发新生。</p>
+        </div>
+    </div>
+</div>
+
+<!-- 页脚 -->
+<footer>
+    <p>中华文化遗产 · 传承千年文明</p>
+    <p>本站内容仅供文化传播与教育用途</p>
+</footer>
+
 </body>
 </html>
-github.com/claracarter202606-dot/claracarter202606-dot.github.io/new/main
