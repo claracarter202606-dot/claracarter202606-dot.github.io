@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物质文化遗产 · 中华文化遗产</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "SimSun", "宋体", serif; background: #fdf6e3; color: #3a2a1a; }
+
+        nav {
+            background: #8b1a1a;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .nav-logo { color: #f5d78e; font-size: 22px; font-weight: bold; letter-spacing: 4px; padding: 16px 0; text-decoration: none; }
+        .nav-links { display: flex; }
+        .nav-links a { color: #f5d78e; text-decoration: none; padding: 18px 24px; font-size: 15px; letter-spacing: 2px; transition: background 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background: #6b1212; }
+
+        .page-hero {
+            background: linear-gradient(rgba(40,10,0,0.6), rgba(40,10,0,0.6)),
+                url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Forbidden_City_Beijing_Shenwumen_gate.jpg/1280px-Forbidden_City_Beijing_Shenwumen_gate.jpg') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px 70px;
+        }
+        .page-hero h1 { font-size: 40px; letter-spacing: 8px; margin-bottom: 12px; text-shadow: 2px 2px 6px rgba(0,0,0,0.5); }
+        .page-hero p { font-size: 15px; letter-spacing: 3px; color: #f5d78e; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        .section-title {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+        .section-title h2 { font-size: 26px; letter-spacing: 6px; color: #8b1a1a; }
+        .section-title p { font-size: 14px; color: #7a5c3a; margin-top: 10px; letter-spacing: 1px; line-height: 1.8; }
+        .section-title .line { width: 60px; height: 2px; background: #d4a84b; margin: 12px auto 0; }
+
+        /* 分类导航 */
+        .cat-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+            background: #fff8ee;
+            border-bottom: 1px solid #e8c97a;
+            position: sticky;
+            top: 56px;
+            z-index: 90;
+        }
+        .cat-nav a {
+            padding: 6px 18px;
+            border: 1px solid #8b1a1a;
+            color: #8b1a1a;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+        .cat-nav a:hover { background: #8b1a1a; color: #f5d78e; }
+
+        /* 遗产分类区块 */
+        .heritage-section { padding: 30px 0 50px; border-bottom: 1px dashed #d4a84b; }
+        .heritage-section:last-child { border-bottom: none; }
+
+        .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .cat-icon { font-size: 32px; }
+        .cat-header h2 { font-size: 22px; letter-spacing: 4px; color: #8b1a1a; }
+        .cat-desc { font-size: 14px; color: #7a5c3a; line-height: 1.8; margin-bottom: 20px; }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .item-card {
+            background: #fff8ee;
+            border: 1px solid #e8c97a;
+            border-radius: 4px;
+            padding: 16px 18px;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .item-card:hover { box-shadow: 0 4px 16px rgba(139,26,26,0.12); transform: translateY(-2px); }
+        .item-card h3 { font-size: 15px; color: #8b1a1a; letter-spacing: 2px; margin-bottom: 8px; }
+        .item-card p { font-size: 13px; line-height: 1.8; color: #5a3e28; }
+        .item-tag {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 2px 10px;
+            background: #f5d78e;
+            color: #8b1a1a;
+            font-size: 11px;
+            border-radius: 2px;
+            letter-spacing: 1px;
+        }
+
+        footer { background: #2a1000; color: #c8a96e; text-align: center; padding: 30px 20px; font-size: 13px; letter-spacing: 2px; line-height: 2; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">中华文化遗产</a>
+    <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="material.html" class="active">物质文化遗产</a>
+        <a href="intangible.html">非物质文化遗产</a>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <h1>物质文化遗产</h1>
+    <p>有形的历史见证 · 不朽的文明印记</p>
+</div>
+
+<!-- 分类快速导航 -->
+<div class="cat-nav">
+    <a href="#site">古遗址</a>
+    <a href="#arch">古建筑</a>
+    <a href="#cave">石窟寺</a>
+    <a href="#city">古城</a>
+    <a href="#village">古村落</a>
+    <a href="#bronze">青铜器</a>
+    <a href="#painting">书画</a>
+    <a href="#porcelain">瓷器</a>
+</div>
+
+<div class="container">
+
+    <!-- 古遗址 -->
+    <div class="heritage-section" id="site">
+        <div class="section-title">
+            <h2>古遗址</h2>
+            <div class="line"></div>
+            <p>古遗址是先民生产生活留下的遗迹，是探索文明起源与发展的重要依据。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>元谋人遗址</h3>
+                <p>云南元谋，距今约170万年，是中国发现的最早人类化石遗址之一。</p>
+                <span class="item-tag">旧石器时代</span>
+            </div>
+            <div class="item-card">
+                <h3>北京周口店遗址</h3>
+                <p>北京房山，距今约70万年，北京猿人化石出土地，世界遗产地。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>半坡遗址</h3>
+                <p>陕西西安，距今约6000年，仰韶文化典型遗址，彩陶文明发源地。</p>
+                <span class="item-tag">新石器时代</span>
+            </div>
+            <div class="item-card">
+                <h3>良渚古城遗址</h3>
+                <p>浙江杭州，距今约5300—4300年，中华文明重要早期城市，2019年入选世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>殷墟</h3>
+                <p>河南安阳，商代晚期都城遗址，甲骨文发现地，2006年入选世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>秦始皇兵马俑</h3>
+                <p>陕西西安，秦代皇家陵寝陪葬坑，被誉为"世界第八大奇迹"。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>三星堆遗址</h3>
+                <p>四川广汉，古蜀文明遗址，出土大量青铜面具，展现独特的古蜀文化。</p>
+                <span class="item-tag">商周时代</span>
+            </div>
+            <div class="item-card">
+                <h3>圆明园遗址</h3>
+                <p>北京海淀，清代皇家园林遗址，西洋楼残迹见证近代历史沧桑。</p>
+                <span class="item-tag">清代</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 古建筑 -->
+    <div class="heritage-section" id="arch">
+        <div class="section-title">
+            <h2>古建筑</h2>
+            <div class="line"></div>
+            <p>中国古建筑以木构架为主体，融技术与艺术为一体，体现天人合一的哲学理念。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>故宫（紫禁城）</h3>
+                <p>北京，明清两代皇宫，世界最大的宫殿建筑群，1987年入选世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>万里长城</h3>
+                <p>横跨15个省市，全长约21196公里，中华民族精神的象征，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>天坛</h3>
+                <p>北京，明清两代皇帝祭天场所，圜丘、祈年殿等建筑展现天圆地方宇宙观。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>布达拉宫</h3>
+                <p>西藏拉萨，藏传佛教圣地，海拔3700米，13层宫殿气势恢宏，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>颐和园</h3>
+                <p>北京，清代皇家园林，以昆明湖、万寿山为主体，中国园林艺术典范。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>苏州古典园林</h3>
+                <p>江苏苏州，拙政园、留园等，"咫尺之内再造乾坤"，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>应县木塔</h3>
+                <p>山西应县，建于辽代1056年，高67.31米，世界现存最高最古老的木构塔。</p>
+                <span class="item-tag">辽代</span>
+            </div>
+            <div class="item-card">
+                <h3>福建土楼</h3>
+                <p>福建龙岩、漳州，客家民居建筑，圆形或方形，2008年入选世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 石窟寺 -->
+    <div class="heritage-section" id="cave">
+        <div class="section-title">
+            <h2>石窟寺</h2>
+            <div class="line"></div>
+            <p>石窟寺是佛教传入中国后，结合中国艺术创造的宗教文化瑰宝，兼具历史、艺术与科学价值。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>敦煌莫高窟</h3>
+                <p>甘肃敦煌，735个洞窟，跨越十六国至元代千年，壁画与彩塑举世无双。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>云冈石窟</h3>
+                <p>山西大同，北魏时期开凿，252个洞窟，以大型石雕佛像著称，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>龙门石窟</h3>
+                <p>河南洛阳，北魏至唐代，2300余个洞窟，卢舍那大佛为代表，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>麦积山石窟</h3>
+                <p>甘肃天水，北朝至明清，221个洞窟，以泥塑彩塑见长，被称"东方雕塑馆"。</p>
+                <span class="item-tag">北朝—明清</span>
+            </div>
+            <div class="item-card">
+                <h3>大足石刻</h3>
+                <p>重庆大足，唐末至宋代，75处，5万余尊造像，世俗题材丰富，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>炳灵寺石窟</h3>
+                <p>甘肃临夏，西秦至明代，183个窟龛，保存有中国最早有明确纪年的石窟造像。</p>
+                <span class="item-tag">西秦—明代</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 古城 -->
+    <div class="heritage-section" id="city">
+        <div class="section-title">
+            <h2>古城</h2>
+            <div class="line"></div>
+            <p>古城是历史上政治、经济、文化的中心，保留着完整的城市格局与历史风貌。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>平遥古城</h3>
+                <p>山西平遥，明代县城，城墙、街道、民居完好保存，票号文化发源地，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>丽江古城</h3>
+                <p>云南丽江，纳西族古城，以四方街为中心，融合汉、藏、纳西文化，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>凤凰古城</h3>
+                <p>湖南湘西，苗族、土家族聚居地，沱江穿城而过，吊脚楼错落有致。</p>
+                <span class="item-tag">苗族文化</span>
+            </div>
+            <div class="item-card">
+                <h3>阆中古城</h3>
+                <p>四川阆中，中国保存最完整的古代城市之一，风水格局完美，汉唐遗风犹存。</p>
+                <span class="item-tag">汉—清代</span>
+            </div>
+            <div class="item-card">
+                <h3>歙县古城</h3>
+                <p>安徽黄山，徽州文化核心地，牌坊、祠堂、民居构成独特徽派建筑体系。</p>
+                <span class="item-tag">徽州文化</span>
+            </div>
+            <div class="item-card">
+                <h3>正定古城</h3>
+                <p>河北石家庄，北方重镇，隆兴寺等古建筑群密集，有"古建筑博物馆"之誉。</p>
+                <span class="item-tag">唐—明清</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 古村落 -->
+    <div class="heritage-section" id="village">
+        <div class="section-title">
+            <h2>古村落</h2>
+            <div class="line"></div>
+            <p>古村落是中国农耕文明的重要载体，保存着传统建筑、民俗与生活方式。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>西递·宏村</h3>
+                <p>安徽黟县，徽派建筑精华，马头墙、天井院落，水系规划独具匠心，世界遗产。</p>
+                <span class="item-tag">世界遗产</span>
+            </div>
+            <div class="item-card">
+                <h3>培田古村</h3>
+                <p>福建连城，客家古村，30余幢明清大宅，被誉为"民间故宫"。</p>
+                <span class="item-tag">客家文化</span>
+            </div>
+            <div class="item-card">
+                <h3>流坑古村</h3>
+                <p>江西乐安，董氏家族聚居千年，保存古建筑260余幢，儒家文化浓厚。</p>
+                <span class="item-tag">赣派建筑</span>
+            </div>
+            <div class="item-card">
+                <h3>张壁古堡</h3>
+                <p>山西介休，隋唐古堡，地下藏有长达千米的古地道，军事防御奇观。</p>
+                <span class="item-tag">隋唐</span>
+            </div>
+            <div class="item-card">
+                <h3>诸葛八卦村</h3>
+                <p>浙江兰溪，诸葛亮后裔聚居地，村落按八卦形态布局，结构奇特。</p>
+                <span class="item-tag">明代</span>
+            </div>
+            <div class="item-card">
+                <h3>党家村</h3>
+                <p>陕西韩城，明清民居保存完好，四合院群落密集，被誉为"东方人类古代传统民居的活化石"。</p>
+                <span class="item-tag">明清</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 青铜器 -->
+    <div class="heritage-section" id="bronze">
+        <div class="section-title">
+            <h2>青铜器</h2>
+            <div class="line"></div>
+            <p>青铜器是商周文明的重要标志，兼具礼仪、政治与艺术功能，铸造工艺精湛绝伦。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>后母戊鼎</h3>
+                <p>商代晚期，重832.84公斤，是迄今出土的中国古代最重的青铜礼器，现藏国家博物馆。</p>
+                <span class="item-tag">商代</span>
+            </div>
+            <div class="item-card">
+                <h3>四羊方尊</h3>
+                <p>商代，湖南出土，四角饰四羊头，造型奇特，铸造工艺登峰造极。</p>
+                <span class="item-tag">商代</span>
+            </div>
+            <div class="item-card">
+                <h3>毛公鼎</h3>
+                <p>西周，铭文497字，是中国现存铭文最多的青铜器，极具历史价值。</p>
+                <span class="item-tag">西周</span>
+            </div>
+            <div class="item-card">
+                <h3>曾侯乙编钟</h3>
+                <p>战国，湖北随州出土，65件编钟，音域跨五个八度，被誉为"世界第八大奇迹"。</p>
+                <span class="item-tag">战国</span>
+            </div>
+            <div class="item-card">
+                <h3>三星堆青铜面具</h3>
+                <p>商代，四川出土，造型夸张神秘，眼部突出，展现古蜀文明独特审美。</p>
+                <span class="item-tag">商代·古蜀</span>
+            </div>
+            <div class="item-card">
+                <h3>莲鹤方壶</h3>
+                <p>春秋，河南新郑出土，盖顶立鹤，莲花围绕，标志春秋青铜艺术的新风格。</p>
+                <span class="item-tag">春秋</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 书画 -->
+    <div class="heritage-section" id="painting">
+        <div class="section-title">
+            <h2>书画</h2>
+            <div class="line"></div>
+            <p>中国书画同源，以笔墨写意，追求气韵生动，是中华文化最具代表性的艺术形式之一。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>《洛神赋图》</h3>
+                <p>东晋顾恺之，描绘曹植《洛神赋》意境，线条流畅，"高古游丝描"典范。</p>
+                <span class="item-tag">东晋</span>
+            </div>
+            <div class="item-card">
+                <h3>《兰亭集序》</h3>
+                <p>东晋王羲之，行书巅峰之作，"天下第一行书"，真迹已佚，摹本传世。</p>
+                <span class="item-tag">书法·东晋</span>
+            </div>
+            <div class="item-card">
+                <h3>《清明上河图》</h3>
+                <p>北宋张择端，长528厘米，描绘北宋汴京繁华景象，风俗画巅峰之作。</p>
+                <span class="item-tag">北宋</span>
+            </div>
+            <div class="item-card">
+                <h3>《富春山居图》</h3>
+                <p>元代黄公望，描绘富春江两岸秋景，"画中之兰亭"，现分藏两岸博物馆。</p>
+                <span class="item-tag">元代</span>
+            </div>
+            <div class="item-card">
+                <h3>《韩熙载夜宴图》</h3>
+                <p>五代顾闳中，描绘韩熙载家宴，人物神态生动，色彩富丽，工笔重彩典范。</p>
+                <span class="item-tag">五代</span>
+            </div>
+            <div class="item-card">
+                <h3>《千里江山图》</h3>
+                <p>北宋王希孟，18岁所作，青绿山水长卷，长11.91米，色彩瑰丽壮观。</p>
+                <span class="item-tag">北宋</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 瓷器 -->
+    <div class="heritage-section" id="porcelain">
+        <div class="section-title">
+            <h2>瓷器</h2>
+            <div class="line"></div>
+            <p>中国是瓷器的故乡，"China"即因瓷器而得名。中国瓷器以釉色、造型、纹饰见长，代表了东方美学的最高成就。</p>
+        </div>
+        <div class="items-grid">
+            <div class="item-card">
+                <h3>汝窑青瓷</h3>
+                <p>北宋，"雨过天青云破处"，釉色纯净温润，传世仅67件，极为珍贵。</p>
+                <span class="item-tag">北宋·五大名窑</span>
+            </div>
+            <div class="item-card">
+                <h3>官窑瓷器</h3>
+                <p>南宋，釉色如翡翠，开片自然，紫口铁足为典型特征，皇家御用。</p>
+                <span class="item-tag">南宋·五大名窑</span>
+            </div>
+            <div class="item-card">
+                <h3>哥窑瓷器</h3>
+                <p>宋代，以"金丝铁线"开片著称，百圾碎纹理天然，历来被视为珍品。</p>
+                <span class="item-tag">宋代·五大名窑</span>
+            </div>
+            <div class="item-card">
+                <h3>钧窑瓷器</h3>
+                <p>宋代，以窑变著称，同一釉料烧出千变万化的色彩，"钧瓷无双"。</p>
+                <span class="item-tag">宋代·五大名窑</span>
+            </div>
+            <div class="item-card">
+                <h3>元青花</h3>
+                <p>元代景德镇，以钴料绘制纹饰，蓝白相映，开创釉下彩绘新时代。</p>
+                <span class="item-tag">元代</span>
+            </div>
+            <div class="item-card">
+                <h3>明成化斗彩</h3>
+                <p>明成化年间，釉下青花与釉上彩相结合，鸡缸杯等传世珍品价值连城。</p>
+                <span class="item-tag">明代</span>
+            </div>
+            <div class="item-card">
+                <h3>清珐琅彩</h3>
+                <p>清代，将欧洲珐琅技艺与中国瓷器结合，色彩富丽，康雍乾三朝极盛。</p>
+                <span class="item-tag">清代</span>
+            </div>
+            <div class="item-card">
+                <h3>龙泉青瓷</h3>
+                <p>浙江龙泉，宋至明代，梅子青、粉青釉色如玉，通过海上丝路远销世界。</p>
+                <span class="item-tag">宋—明代</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>中华文化遗产 · 传承千年文明</p>
+    <p>本站内容仅供文化传播与教育用途</p>
+</footer>
+
+</body>
+</html>
